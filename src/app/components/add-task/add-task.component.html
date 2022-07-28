@@ -1,0 +1,37 @@
+<form *ngIf="showAddTask" class="add-form" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="text">Task</label>
+    <!-- TWO-WAY DATA BINDING: -->
+    <!-- Use two-way binding to listen for events and update values simultaneously between parent and child components -->
+
+    <!-- [] are for inputs [properties/props] ; () are for outputs (events) -->
+    <!-- For TWO-WAY, use both [()] -->
+    <input type="text" name="text" [(ngModel)]="text" placeholder="Add Task" />
+  </div>
+  <div class="form-control">
+    <label for="day">Day & Time</label>
+    <input
+      type="text"
+      name="day"
+      [(ngModel)]="day"
+      id="day"
+      placeholder="Add Day & Time"
+    />
+  </div>
+  <div class="form-control form-control-check">
+    <label for="reminder">Set Reminder</label>
+    <input
+      type="checkbox"
+      name="reminder"
+      [(ngModel)]="reminder"
+      id="reminder"
+    />
+  </div>
+  {{ text }}
+  <input
+    type="submit"
+    value="Save Task"
+    class="btn btn-block"
+    [ngStyle]="{ 'background-color': 'blue' }"
+  />
+</form>
